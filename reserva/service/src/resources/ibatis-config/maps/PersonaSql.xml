@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Persona">
+
+	<resultMap id="persona" class="org.entities.Persona">
+		<result property="id" 		column="id" />
+		<result property="nombre" 	column="nombre" />	
+		<result property="apellido" 	column="apellido" />	
+		<result property="direccion" 	column="direccion" />
+		<result property="edad" 	column="edad" />
+		<result property="telefono" 	column="telefono" />
+		<result property="celular" 	column="celular" />
+		<result property="correo" 	column="correo" />
+	</resultMap>
+	
+	<select id="getUserById" parameterClass="java.lang.Integer" resultMap="persona">
+          SELECT * FROM userinfo WHERE ID = #value#
+    </select>
+     
+    <insert id="addUser" parameterClass="USER">
+        INSERT INTO `userinfo`(`nombre`,`apellido`,`direccion`,`edad`,`telefono`,`celular`,`correo`)
+        VALUES(#nombre#,#apellido#,#direccion#,#edad#,#telefono#,#celular#,#correo#);
+    </insert>
+     
+    <delete id="deleteUserById" parameterClass="java.lang.Integer">
+          DELETE FROM userinfo WHERE ID = #value#
+    </delete>
+    
+</sqlMap>

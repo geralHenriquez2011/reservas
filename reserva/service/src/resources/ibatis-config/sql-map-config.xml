@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+
+	<properties resource="resource.properties"/>
+
+	<settings 
+	    cacheModelsEnabled="true"
+	    enhancementEnabled="false"
+	    lazyLoadingEnabled="true"
+	    maxRequests="32"
+	    maxSessions="10"
+	    maxTransactions="5"
+	    useStatementNamespaces="false"    
+	/>
+	
+	  <transactionManager type="JDBC">
+	    <dataSource type="SIMPLE">
+	      <property value="${driver}" name="JDBC.Driver"/>
+	      <property value="${url}" name="JDBC.ConnectionURL"/>
+	      <property value="${username}" name="JDBC.Username"/>
+	      <property value="${password}" name="JDBC.Password"/>
+	      <property name="Pool.PingQuery" value="select 1 from dual"/>
+	      <property name="Pool.PingEnabled" value="true"/>
+	      <property name="Pool.PingConnectionsOlderThan" value="3600000"/>
+		  <property name="Pool.PingConnectionsNotUsedFor" value="60000"/>
+	    </dataSource>
+	  </transactionManager>	
+	  
+	<sqlMap resource="ibatis-config/maps/PersonaSql.xml" />
+	
+</sqlMapConfig>
