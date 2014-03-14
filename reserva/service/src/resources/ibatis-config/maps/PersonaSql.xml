@@ -17,7 +17,7 @@
           SELECT * FROM userinfo WHERE ID = #value#
     </select>
      
-    <insert id="addUser" parameterClass="USER">
+    <insert id="addUser" parameterClass="org.entities.Persona">
         INSERT INTO `userinfo`(`nombre`,`apellido`,`direccion`,`edad`,`telefono`,`celular`,`correo`)
         VALUES(#nombre#,#apellido#,#direccion#,#edad#,#telefono#,#celular#,#correo#);
     </insert>
